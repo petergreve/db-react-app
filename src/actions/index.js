@@ -1,15 +1,23 @@
-export const FETCH_PERSON = 'FETCH_PERSON'
-export const FETCH_PERSON_SUCCESS = 'FETCH_PERSON_SUCCESS'
-export const FETCH_PERSON_FAILED = 'FETCH_PERSON_FAILED'
-export const SHOW_RESULT_MODAL = 'SHOW_RESULT_MODAL'
-export const HIDE_RESULT_MODAL = 'HIDE_RESULT_MODAL'
-
-export const fetchPerson = id => {
-  return {
+import {
+  FETCH_PERSON,
+  FETCH_PERSON_SUCCESS,
+  FETCH_PERSON_FAILED,
+  FETCH_FACILITY,
+  FETCH_FACILITY_SUCCESS,
+  FETCH_FACILITY_FAILED,
+  FETCH_EXPOSURE,
+  FETCH_EXPOSURE_SUCCESS,
+  FETCH_EXPOSURE_FAILED,
+  SHOW_RESULT_MODAL,
+  HIDE_RESULT_MODAL,
+} from '../constants';
+ 
+export const fetchPerson = id => (
+  {
     type: FETCH_PERSON,
-    id,
+    payload: id,
   }
-}
+)
 
 export const fetchPersonSuccess = payload => (
   {
@@ -18,9 +26,52 @@ export const fetchPersonSuccess = payload => (
   }
 )
 
-export const fetchPersonFailed = () => (
+export const fetchPersonFailed = err => (
   {
     type: FETCH_PERSON_FAILED,
+    payload: err,
+  }
+)
+
+export const fetchFacility = id => (
+  {
+    type: FETCH_FACILITY,
+    payload: id,
+  }
+)
+
+export const fetchFacilitySuccess = payload => (
+  {
+    type: FETCH_FACILITY_SUCCESS,
+    payload,
+  }
+)
+
+export const fetchFacilityFailed = err => (
+  {
+    type: FETCH_FACILITY_FAILED,
+    payload: err,
+  }
+)
+
+export const fetchExposure = id => (
+  {
+    type: FETCH_EXPOSURE,
+    payload: id,
+  }
+)
+
+export const fetchExposureSuccess = payload => (
+  {
+    type: FETCH_EXPOSURE_SUCCESS,
+    payload,
+  }
+)
+
+export const fetchExposureFailed = err => (
+  {
+    type: FETCH_EXPOSURE_FAILED,
+    payload: err
   }
 )
 
